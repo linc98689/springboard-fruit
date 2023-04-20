@@ -13,14 +13,17 @@ const search = str => FRUITS.filter(elm => elm.toLowerCase().indexOf(str.toLower
 function searchHandler(e) {
 	let searchWord = input.value;
 	let searchResults = search(searchWord);
-	showSuggestions(searchResults);
+	showSuggestions(searchResults, searchWord);
 }
 
-function showSuggestions(results) {
+function showSuggestions(results, inputVal) {
 	suggestions.innerHTML="";
 	for(let result of results){
 		let newLi = document.createElement("li");
 		newLi.innerText = result;
+		if (result.toLowerCase()==inputVal.toLowerCase()){//highlight exact match
+			newLi.classList.add("has-suggestions");
+		}
 		suggestions.append(newLi);
 	}
 }

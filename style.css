@@ -13,7 +13,7 @@ input:focus {
   outline:1px solid rgb(189, 189, 192);
   outline-offset: 1px;
   border: 1px solid #e86c0a ;
-  border-radius: 2px;
+  /* border-radius: 2px; */
 }
 .search-container {
   width: 30%;
@@ -27,24 +27,22 @@ input:focus {
   margin:0;
 }
 .search-container input {
-  padding: 10px 5px;
+  padding: 1.3em 1em;
 }
 .search-container .suggestions {
-   /* TODO */
-}
-
-ul {
   width:100%;
+}
+ul {
   list-style-type:none;
   padding: 0px;
   margin:0;
 }
-ul.has-suggestions {
-  /* TODO */
+.has-suggestions {
+  background-color: #e65d00;
 }
 ul li {
  background-color: #f4ae48;
- padding: 5px;
+ padding: 1em;
  margin:0px;
 }
 ul li:hover {
@@ -53,5 +51,6 @@ ul li:hover {
 input{
   background-color: #f4ae48;
   border:1px solid #f4ae48;
+  border-radius: 2px;
   box-shadow: 0 1px 1px #e86c0a;
 }
