@@ -7,7 +7,7 @@ const suggestions = document.querySelector('.suggestions ul');
 
 
 /** helper functions */
-const search = str => FRUITS.filter(elm => elm.toLowerCase().indexOf(str.toLowerCase())!== -1);
+const search = str => FRUITS.filter(elm => elm.toLowerCase().indexOf(str.toLowerCase()) !== -1);
 
 /** event handlers */
 function searchHandler(e) {
@@ -16,12 +16,19 @@ function searchHandler(e) {
 	showSuggestions(searchResults, searchWord);
 }
 
+//show suggestions and highlight exact match, if there are no suggestions, show "No suggestions"
 function showSuggestions(results, inputVal) {
-	suggestions.innerHTML="";
-	for(let result of results){
+	suggestions.innerHTML = ""; //clear previous suggestions
+	if (results.length == 0) {
+		let newLi = document.createElement("li");
+		newLi.innerText = "No Fruit Found";
+		suggestions.append(newLi);
+		return;
+	}
+	for (let result of results) {
 		let newLi = document.createElement("li");
 		newLi.innerText = result;
-		if (result.toLowerCase()==inputVal.toLowerCase()){//highlight exact match
+		if (result.toLowerCase() == inputVal.toLowerCase()) {//highlight exact match
 			newLi.classList.add("has-suggestions");
 		}
 		suggestions.append(newLi);
@@ -31,7 +38,7 @@ function showSuggestions(results, inputVal) {
 function useSuggestion(e) {
 	let target = e.target;
 	input.value = target.innerText;
-	suggestions.innerHTML="";
+	suggestions.innerHTML = "";
 }
 
 /** event listener */
